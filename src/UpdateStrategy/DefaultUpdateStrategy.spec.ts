@@ -29,7 +29,7 @@ describe('DefaultUpdateStrategy',  () => {
         expect(item.quality).to.equal(0);
     });
 
-    it('Quality of a normal should degrade', () => {
+    it('Quality of an item should degrade', () => {
 
         let quality = 2;
 
@@ -42,7 +42,7 @@ describe('DefaultUpdateStrategy',  () => {
         expect(item.quality).to.equal(quality + strategy.getDegradationFactor());
     });
 
-    it('Quality of a normal should degrade twice as quickly if pass sell date', () => {
+    it('Quality of an item should degrade twice as quickly if pass sell date', () => {
 
         let quality = 4;
 
