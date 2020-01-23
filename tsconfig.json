@@ -1,12 +1,26 @@
 {
     "compilerOptions": {
+        "target": "ES2017",
         "module": "commonjs",
-        "target": "es5",
-        "strict": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
         "noImplicitAny": false,
-        "sourceMap": false
+        "removeComments": true,
+        "noLib": false,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "forceConsistentCasingInFileNames": true,
+        "declaration": true,
+        "outDir": "dist",
+        "strictNullChecks": true,
+        "pretty": true
     },
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "dist",
+        "./src/**/*.spec.ts"
     ]
 }

@@ -1,14 +1,5 @@
-export class Item {
-    name: string;
-    sellIn: number;
-    quality: number;
+import {Item} from "./Item";
 
-    constructor(name, sellIn, quality) {
-        this.name = name;
-        this.sellIn = sellIn;
-        this.quality = quality;
-    }
-}
 
 export class GildedRose {
     items: Array<Item>;

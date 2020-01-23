@@ -1,0 +1,19 @@
+{
+
+  "days": 30,
+  "maxQuality": 50,
+  "minQuality": 0,
+
+  "maturingItems": [
+    "Aged Brie"
+  ],
+
+  "legendaryItems": [
+    "Sulfuras, Hand of Ragnaros"
+  ],
+
+  "eventItems": [
+    "Backstage passes to a TAFKAL80ETC concert"
+  ]
+
+}
