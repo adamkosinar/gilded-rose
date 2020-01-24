@@ -1,13 +1,14 @@
-import {expect} from 'chai';
+import {expect} from "chai";
 import {Item} from "../Item";
 import {UpdateStrategyProvider} from "./UpdateStrategyProvider";
 import {DefaultUpdateStrategy} from "../UpdateStrategy/DefaultUpdateStrategy";
 import {EventItemUpdateStrategy} from "../UpdateStrategy/EventItemUpdateStrategy";
 import {MaturingItemUpdateStrategy} from "../UpdateStrategy/MaturingItemUpdateStrategy";
+import {LegendaryItemUpdateStrategy} from "../UpdateStrategy/LegendaryItemUpdateStrategy";
 
 const provider = new UpdateStrategyProvider();
 
-describe('UpdateStrategyProvider',  () => {
+describe("UpdateStrategyProvider",  () => {
 
     it("should resolve right strategy based on item  name", () => {
 
@@ -23,6 +24,9 @@ describe('UpdateStrategyProvider',  () => {
 
         expect(strategy).to.be.instanceOf(MaturingItemUpdateStrategy);
 
+        strategy = provider.resolveStrategyFor(new Item("Sulfuras, Hand of Ragnaros", 10, 10));
+
+        expect(strategy).to.be.instanceOf(LegendaryItemUpdateStrategy);
     });
 
 });

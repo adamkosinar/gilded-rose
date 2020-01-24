@@ -10,7 +10,6 @@ export abstract class UpdateStrategy {
     public getDegradationFactor() {
 
         return this.degradationFactor;
-
     }
 
     public updateQuality(item: Item, day: number): Item {
@@ -20,7 +19,6 @@ export abstract class UpdateStrategy {
             item.quality = 0;
 
             return item;
-
         }
 
         if (this.isMaxQuality(item) ) {
@@ -40,13 +38,11 @@ export abstract class UpdateStrategy {
         }
 
         return item;
-
     }
 
     protected isMaxQuality(item: Item) : boolean {
 
         return item.quality == this.maxQuality
-
     }
 
     protected isNegativeQuality(item: Item) : boolean {
