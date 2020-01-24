@@ -13,7 +13,7 @@ export abstract class UpdateStrategy {
 
     }
 
-    public updateQuality(item: Item, day: number) {
+    public updateQuality(item: Item, day: number): Item {
 
         if (this.isNegativeQuality(item)) {
 
@@ -43,13 +43,13 @@ export abstract class UpdateStrategy {
 
     }
 
-    protected isMaxQuality(item: Item) {
+    protected isMaxQuality(item: Item) : boolean {
 
         return item.quality == this.maxQuality
 
     }
 
-    protected isNegativeQuality(item: Item) {
+    protected isNegativeQuality(item: Item) : boolean {
 
         return item.quality < 0;
     }

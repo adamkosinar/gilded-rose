@@ -38,7 +38,7 @@ export class EventItemUpdateStrategy extends UpdateStrategy {
         return item;
     }
 
-    private setDegradationFactor(sellIn, day) {
+    private setDegradationFactor(sellIn, day) : number {
 
         let daysLeft = sellIn - day;
 

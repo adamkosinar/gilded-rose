@@ -26,13 +26,13 @@ export class UpdateStrategyProvider {
         return new DefaultUpdateStrategy();
     }
 
-    private isEventType(item: Item) {
+    private isEventType(item: Item) : boolean {
 
         return !(_.indexOf(this.eventTypes, item.name));
 
     }
 
-    private isMaturingType(item: Item) {
+    private isMaturingType(item: Item) : boolean {
 
         return !(_.indexOf(this.maturingTypes, item.name));
 
