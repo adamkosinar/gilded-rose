@@ -9,11 +9,10 @@ export class GildedRose {
 
     constructor(private updateStrategyProvider: UpdateStrategyProvider, items = [] as Array<Item>) {
 
-
         this.items = items;
     }
 
-    updateQuality(day) {
+    updateQuality(day) : Array<Item> {
 
         this.items = _.map(this.items, (item) => {
 
