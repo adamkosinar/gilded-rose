@@ -1,10 +1,8 @@
-import {DefaultUpdateStrategy} from "./DefaultUpdateStrategy";
+import {UpdateStrategy} from "./UpdateStrategy";
 
-export class MaturingItemUpdateStrategy extends DefaultUpdateStrategy{
-
+export class MaturingItemUpdateStrategy extends UpdateStrategy{
 
     constructor() {
-
         super();
         this.degradationFactor = 1;
     }

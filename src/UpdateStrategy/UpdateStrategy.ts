@@ -3,13 +3,43 @@ import * as config from "../../config.json";
 
 export abstract class UpdateStrategy {
 
-    protected maxQuality;
-    protected minQuality;
-    protected degradationFactor = -1;
+    protected maxQuality = config.maxQuality;
+    protected minQuality = config.minQuality;
+    protected degradationFactor = 0;
 
     public getDegradationFactor() {
 
         return this.degradationFactor;
+
+    }
+
+    public updateQuality(item: Item, day: number) {
+
+        if (this.isNegativeQuality(item)) {
+
+            item.quality = 0;
+
+            return item;
+
+        }
+
+        if (this.isMaxQuality(item) ) {
+
+            return item;
+        }
+
+        if (item.quality <= this.maxQuality && item.quality > this.minQuality) {
+
+            if (item.sellIn < day) {
+
+                item.quality = item.quality + this.degradationFactor;
+            }
+
+            item.quality = item.quality + this.degradationFactor;
+
+        }
+
+        return item;
 
     }
 

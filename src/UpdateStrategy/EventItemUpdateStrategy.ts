@@ -1,10 +1,8 @@
 import {Item} from "../Item";
-import {DefaultUpdateStrategy} from "./DefaultUpdateStrategy";
+import {UpdateStrategy} from "./UpdateStrategy";
 
 
-export class EventItemUpdateStrategy extends DefaultUpdateStrategy {
-
-    private totalDays;
+export class EventItemUpdateStrategy extends UpdateStrategy {
 
     constructor() {
         super();

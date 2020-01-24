@@ -1,12 +1,13 @@
 import { expect } from 'chai';
 import { GildedRose } from '../src/gilded-rose';
 import {Item} from '../src/Item';
+import {UpdateStrategyProvider} from "../src/UpdateStrategyProvider/UpdateStrategyProvider";
 
-xdescribe('Gilded Rose', function () {
+describe('Gilded Rose', function () {
 
     it('should foo', function() {
-        const gildedRose = new GildedRose([ new Item('foo', 0, 0) ]);
-        const items = gildedRose.updateQuality();
+        const gildedRose = new GildedRose(new UpdateStrategyProvider(), [ new Item('foo', 0, 0) ]);
+        const items = gildedRose.updateQuality(1);
         //expect(items[0].name).to.equal('fixme');
     });
 
