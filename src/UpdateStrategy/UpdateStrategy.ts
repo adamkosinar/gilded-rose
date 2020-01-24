@@ -1,4 +1,5 @@
 import {Item} from "../Item";
+import * as config from "../../config.json";
 
 export abstract class UpdateStrategy {
 
@@ -12,7 +13,7 @@ export abstract class UpdateStrategy {
 
     }
 
-    protected isMaxQuality(item) {
+    protected isMaxQuality(item: Item) {
 
         return item.quality == this.maxQuality
 
