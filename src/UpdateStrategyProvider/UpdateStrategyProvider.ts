@@ -6,6 +6,7 @@ import * as _ from "lodash";
 import {EventItemUpdateStrategy} from "../UpdateStrategy/EventItemUpdateStrategy";
 import {MaturingItemUpdateStrategy} from "../UpdateStrategy/MaturingItemUpdateStrategy";
 import {LegendaryItemUpdateStrategy} from "../UpdateStrategy/LegendaryItemUpdateStrategy";
+import {ConjuredItemUpdateStrategy} from "../UpdateStrategy/ConjuredItemUpdateStrategy";
 
 export class UpdateStrategyProvider {
 
@@ -31,6 +32,11 @@ export class UpdateStrategyProvider {
             return new LegendaryItemUpdateStrategy();
         }
 
+        if (this.isConjuredItem(item)) {
+
+            return new ConjuredItemUpdateStrategy();
+        }
+
         return new DefaultUpdateStrategy();
     }
 
@@ -52,4 +58,10 @@ export class UpdateStrategyProvider {
 
     }
 
+    private isConjuredItem(item: Item): boolean {
+
+        let name = item.name.toLowerCase();
+
+        return name.includes("conjured");
+    }
 }
