@@ -1,5 +1,4 @@
 import {Item} from "../Item";
-import * as config from "../../config.json";
 import {DefaultUpdateStrategy} from "./DefaultUpdateStrategy";
 
 
@@ -9,8 +8,6 @@ export class EventItemUpdateStrategy extends DefaultUpdateStrategy {
 
     constructor() {
         super();
-
-        this.totalDays = config.days;
         this.degradationFactor = 1;
     }
 
@@ -36,16 +33,16 @@ export class EventItemUpdateStrategy extends DefaultUpdateStrategy {
             return item;
         }
 
-        this.degradationFactor = this.setDegradationFactor(day);
+        this.degradationFactor = this.setDegradationFactor(item.sellIn, day);
 
         item.quality = item.quality + this.degradationFactor;
 
         return item;
     }
 
-    private setDegradationFactor(day) {
+    private setDegradationFactor(sellIn, day) {
 
-        let daysLeft = this.totalDays - day;
+        let daysLeft = sellIn - day;
 
         if (daysLeft <= 5) {
 

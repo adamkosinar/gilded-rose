@@ -1,14 +1,13 @@
 import {Item} from "../Item";
 import * as config from "../../config.json";
+import {UpdateStrategy} from "./UpdateStrategy";
 
-export class DefaultUpdateStrategy {
+export class DefaultUpdateStrategy extends UpdateStrategy{
 
-    protected maxQuality;
-    protected minQuality;
     protected degradationFactor = -1;
 
     constructor() {
-
+        super();
         this.maxQuality = config.maxQuality;
         this.minQuality = config.minQuality;
     }
@@ -43,21 +42,4 @@ export class DefaultUpdateStrategy {
 
     }
 
-
-    public getDegradationFactor() {
-
-        return this.degradationFactor;
-
-    }
-
-    protected isMaxQuality(item) {
-
-        return item.quality == this.maxQuality
-
-    }
-
-    protected isNegativeQuality(item: Item) {
-
-        return item.quality < 0;
-    }
 }

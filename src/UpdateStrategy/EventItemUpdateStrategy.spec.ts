@@ -35,7 +35,7 @@ describe('EventItemUpdateStrategy',  () => {
 
         let item = strategy.updateQuality(new Item(
             'eventItem',
-            10,
+            60,
             quality
         ), 1);
 
@@ -48,7 +48,7 @@ describe('EventItemUpdateStrategy',  () => {
 
         let item = strategy.updateQuality(new Item(
             'eventItem',
-            10,
+            30,
             quality
         ), 1);
 
@@ -68,5 +68,33 @@ describe('EventItemUpdateStrategy',  () => {
         expect(item.quality).to.equal(0);
 
     });
+
+    it('Quality should increase if there are ten or less days left by two', () => {
+
+        let quality = 2;
+
+        let item = strategy.updateQuality(new Item(
+            'eventItem',
+            20,
+            quality
+        ), 10);
+
+        expect(item.quality).to.equal(4);
+
+    });
+
+    it('Quality should increase if there are five or less days left by three', () => {
+
+        let quality = 2;
+
+        let item = strategy.updateQuality(new Item(
+            'eventItem',
+            20,
+            quality
+        ), 16);
+
+        expect(item.quality).to.equal(5);
+
+    })
 
 });
