@@ -1,3 +1,29 @@
+# Intro
+
+Hello there!
+
+This is my humble attempt to complete your gilded rose kata. It was quite fun project and I enjoyed doing it.
+
+## The approach
+
+I decided to tackle the issue using the strategy pattern. I have created an update strategy per each type of item as I am not allowed 
+to change the item class itself. In a nutshell this delegates the logic, that could have been solved by polymorphism should we would be allowed to change  the item class, to strategies and a provider class that
+determines what strategy should be used based on the name of the item.
+
+I also took some liberties with the project structure and dependencies as they had to be updated to use not deprecated versions.
+
+I also moved some variables into a config file to make the solution more declarative as I am not a big fan of hardcoded values.
+
+## How to run
+
+all run options are encapsulated in package.json and run via npm.
+
+make sure you have all dependencies installed via npm install.
+
+use **npm run app** to run the app main.
+
+use **npm run test** to run all unit tests
+
 # Gilded Rose
 
 ### Guidance Notes

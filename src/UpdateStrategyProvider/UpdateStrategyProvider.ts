@@ -8,8 +8,18 @@ import {MaturingItemUpdateStrategy} from "../UpdateStrategy/MaturingItemUpdateSt
 import {LegendaryItemUpdateStrategy} from "../UpdateStrategy/LegendaryItemUpdateStrategy";
 import {ConjuredItemUpdateStrategy} from "../UpdateStrategy/ConjuredItemUpdateStrategy";
 
+
+/*
+Provider resolves  what strategy should be used based on data within the item instance
+I do realize that all explicit instantiations should be delegated to factories though
+I do not think it is completely necessary here.
+*/
 export class UpdateStrategyProvider {
 
+    /*
+    I read the item definitions from the config, which is not ideal.
+    In the real world this would be probably a  file or a database.
+     */
     private eventTypes = config.eventItems;
     private maturingTypes = config.maturingItems;
     private legendaryTypes = config.legendaryItems;

@@ -1,10 +1,15 @@
 import {Item} from "../Item";
 import * as config from "../../config.json";
 
+/*
+An interface would work as well though it would result with some more duplicated code
+ */
 export abstract class UpdateStrategy {
 
     protected maxQuality = config.maxQuality;
     protected minQuality = config.minQuality;
+
+    // not a  big fan of the name as quality not always degrades
     protected degradationFactor = 0;
 
     public getDegradationFactor() {
