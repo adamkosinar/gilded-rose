@@ -5,6 +5,7 @@ import {DefaultUpdateStrategy} from "../UpdateStrategy/DefaultUpdateStrategy";
 import {EventItemUpdateStrategy} from "../UpdateStrategy/EventItemUpdateStrategy";
 import {MaturingItemUpdateStrategy} from "../UpdateStrategy/MaturingItemUpdateStrategy";
 import {LegendaryItemUpdateStrategy} from "../UpdateStrategy/LegendaryItemUpdateStrategy";
+import {ConjuredItemUpdateStrategy} from "../UpdateStrategy/ConjuredItemUpdateStrategy";
 
 const provider = new UpdateStrategyProvider();
 
@@ -27,6 +28,10 @@ describe("UpdateStrategyProvider",  () => {
         strategy = provider.resolveStrategyFor(new Item("Sulfuras, Hand of Ragnaros", 10, 10));
 
         expect(strategy).to.be.instanceOf(LegendaryItemUpdateStrategy);
+
+        strategy = provider.resolveStrategyFor(new Item("Conjured item", 10, 10));
+
+        expect(strategy).to.be.instanceOf(ConjuredItemUpdateStrategy);
     });
 
 });

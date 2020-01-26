@@ -1,6 +1,7 @@
 import {GildedRose } from './src/gilded-rose';
 import {Item}  from "./src/Item";
 import {UpdateStrategyProvider} from "./src/UpdateStrategyProvider/UpdateStrategyProvider";
+import * as config from "./config.json";
 
 const items = [
     new Item("+5 Dexterity Vest", 10, 20), //
@@ -16,8 +17,11 @@ const items = [
 
 
 const gildedRose = new GildedRose(new UpdateStrategyProvider(),items);
-const days: number = 2;
-for (let i = 0; i <= days; i++) {
+
+const days: number = config.totalDays;
+
+for (let i = 1; i <= days; i++) {
+
     console.log("-------- day " + i + " --------");
     console.log("name, sellIn, quality");
     items.forEach(element => {
@@ -25,6 +29,6 @@ for (let i = 0; i <= days; i++) {
 
 
     });
-    console.log();
     gildedRose.updateQuality(i);
+
 }
